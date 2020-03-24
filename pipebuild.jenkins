@@ -1,9 +1,10 @@
 #!groovy
+properties([disableConcurrentBuilds()])
 pipeline {
   agent {
         label 'gobuild'
         }
-    options {
+  options {
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '10'))
         timestamps()
     }
