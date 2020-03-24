@@ -16,10 +16,5 @@ pipeline {
         sh 'export PATH=$PATH:/usr/local/go/bin && go build main.go'
       }
     }
-    stage("Test") {
-      steps {
-        sh 'export PATH=$PATH:/usr/local/go/bin && go test'
-      }
-    }
   }
 }
