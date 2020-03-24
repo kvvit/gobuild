@@ -1,6 +1,12 @@
+#!groovy
 pipeline {
-  agent any
-
+  agent {
+        label 'docker'
+        }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
   stages {
     stage('Build') {
       steps {
