@@ -1,5 +1,6 @@
 #!groovy
 properties([disableConcurrentBuilds()])
+
 pipeline {
   agent {
         label 'gobuild'
@@ -9,17 +10,15 @@ pipeline {
         timestamps()
     }
   stages {
-    stage('Build') {
+    stage("Build") {
       steps {
-        echo " ============= start building stage ==============="
-        sh "go version"
-        sh "go build main.go"
+        sh 'go version'
+        sh 'go build main.go'
       }
     }
-    stage('Test') {
+    stage("Test") {
       steps {
-        echo " ============= start testing stage ==============="
-        sh "go test"
+        sh 'go test'
       }
     }
   }
