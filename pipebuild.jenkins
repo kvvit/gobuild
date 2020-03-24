@@ -4,12 +4,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        echo " ============= start building stage ==============="
         sh "go version"
         sh "go build main.go"
       }
     }
     stage('Test') {
       steps {
+        echo " ============= start testing stage ==============="
         sh "go test"
       }
     }
