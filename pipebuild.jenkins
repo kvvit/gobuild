@@ -21,5 +21,12 @@ pipeline {
         sh 'go test'
       }
     }
+    stage("Deploy"){
+      steps {
+        sh 'rsync -av main root@srvswarm03.ad.pu.ru:/usr/local/bin/goapp'
+        sh 'ssh root@srvswarm03.ad.pu.ru -l root "/etc/init.d/goapp stop"'
+        sh 'ssh root@srvswarm03.ad.pu.ru -l root "/etc/init.d/goapp start"'
+      }
+     }
   }
 }
