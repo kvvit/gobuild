@@ -24,9 +24,12 @@ pipeline {
     stage("Deploy"){
       steps {
         sh 'rsync -av main root@srvswarm03.ad.pu.ru:/usr/local/bin/goapp'
-        sh 'ssh root@srvswarm03.ad.pu.ru -l root "/etc/init.d/goapp stop"'
-        sh 'ssh root@srvswarm03.ad.pu.ru -l root "/etc/init.d/goapp start"'
-      }
+       }
      }
+    post {
+      always {
+        emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+      }
+    }
   }
 }
