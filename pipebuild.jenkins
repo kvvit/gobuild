@@ -29,7 +29,7 @@ pipeline {
    }
     post {
       always {
-        emailext body: 'A Go build number ${BUILD_NUMBER} has passed', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'gobuild'
+        emailext body: 'A Go build number ${BUILD_NUMBER} has passed', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'gobuild ${BUILD_NUMBER}'
     }
   }
 }
