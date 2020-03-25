@@ -12,8 +12,8 @@ pipeline {
   stages {
     stage("Build") {
       steps {
-        sh 'export PATH=$PATH:/usr/local/go/bin && go version'
-        sh 'export PATH=$PATH:/usr/local/go/bin && go build main.go'
+        sh 'go version'
+        sh 'go build main.go'
       }
     }
   }
