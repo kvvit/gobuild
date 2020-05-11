@@ -1,6 +1,6 @@
 #!groovy
 properties([disableConcurrentBuilds()])
-
+# here some text for test
 pipeline {
   agent {
         label 'gobuild'
